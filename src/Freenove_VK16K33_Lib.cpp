@@ -268,19 +268,19 @@ void Freenove_VK16K33::showLedMatrix(byte array[8][8],int x_offset,int y_offset)
 	}
 	_brightness=constrain(_brightness,1,15);
 	setBrightness(_brightness);
-    x_offset=constrain(x_offset,0,8);
+  x_offset=constrain(x_offset,0,8);
 	byte left_array[8];
 	byte right_array[8];
-    for (int i = 0; i < 8; i++)
-      left_array[i]=(array_buffer[i] >> x_offset)&0xff;
-    for (int i = 0; i < 8; i++)
-      right_array[i]=(array_buffer[i] << (8-x_offset))&0xff;
+  for (int i = 0; i < 8; i++)
+    left_array[i]=(array_buffer[i] >> x_offset)&0xff;
+  for (int i = 0; i < 8; i++)
+    right_array[i]=(array_buffer[i] << (8-x_offset))&0xff;
 	
 	for (int i = 0; i < 16; i++)
-      setRow(i, 0x00);
-    show();
+    setRow(i, 0x00);
+  show();
 	
-    if(y_offset>0)
+  if(y_offset>0)
 	{
 		y_offset=8-abs(y_offset);
 		y_offset=constrain(y_offset,0,9);
@@ -300,7 +300,7 @@ void Freenove_VK16K33::showLedMatrix(byte array[8][8],int x_offset,int y_offset)
 		  setRow(16 - y_offset + i, right_array[i] & 0xff);
 		}
 	}
-    show();
+  show();
 }
 
 
